@@ -1,0 +1,63 @@
+$drawerWidth: 300px;
+$drawerMargin: 72px;
+
+.drawer {
+  position: fixed;
+  background-color: $primary;
+  left: -$drawerWidth;
+  width: $drawerWidth;
+  height: 100vh;
+  padding: 1rem;
+  color: $text-white;
+  transition: left 0.45s ease-in-out;
+}
+
+.drawer.open {
+  left: 0;
+}
+
+.main {
+  transition: padding-left 0.45s ease-in-out;
+}
+
+.toggler {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+}
+
+@media screen and (min-width: $tabletBr) {
+  .drawer {
+    left: -$drawerWidth + $drawerMargin;
+  }
+
+  .main {
+    padding-left: $drawerMargin;
+  }
+
+  .main.open {
+    padding-left: $drawerWidth;
+  }
+}
+
+@media screen and (min-width: $desktopBr) {
+  .drawer {
+    left: 0;
+  }
+
+  .drawer.open {
+    left: 0;
+  }
+
+  .main {
+    padding-left: $drawerWidth;
+  }
+
+  .main.open {
+    padding-left: $drawerWidth;
+  }
+
+  .toggler {
+    display: none;
+  }
+}

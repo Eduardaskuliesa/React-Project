@@ -1,6 +1,8 @@
 import React from 'react';
+import ProductsPage from 'pages/products-page';
 
 const App = () => (
-  <div>app</div>
+  <ProductsPage />
 );
+
 export default App;
