@@ -1,0 +1,41 @@
+{
+    "cereals": [
+        {
+            "id": 1,
+            "brand": "Nestle",
+            "name": "Nesquik",
+            "price": 2.39,
+            "img": "http://localhost:5009/kakavos-skondribsniai-nestle-225g.jpg" 
+        },
+        {
+            "id":2,
+            "brand":"Nestle",
+            "name": "Lion",
+            "price": 2.49,
+            "img":"http://localhost:5009/4e84cbb6ad5f99d0c8b20c6f67bfd421.webp"
+            
+        },
+        {
+            "id":3,
+            "brand":"OHO",
+            "name":"Kviečiai su medumi",
+            "price": 1.89,
+            "img":"http://localhost:5009/barcodes_sa__v36uaa4.png"
+        },
+        {
+            "id":4,
+            "brand":"OHO",
+            "name":"Trys draugai",
+            "price":3.19,
+            "img": "http://localhost:5009/0961f346-dd3d-48d4-8300-a14e99750c28_m.png"
+            
+        },
+        {
+            "id":5,
+            "brand":"Nestle",
+            "name":"Corn Flakes",
+            "price": 2.89,
+            "img":"http://localhost:5009/Nestle%20Corn%20Flakes%20mockup_0.png"
+        }
+    ]
+}
