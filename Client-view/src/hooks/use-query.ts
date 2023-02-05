@@ -32,7 +32,7 @@ const useQuery = <T, InitValue extends T>(
         setLoading(false);
       }
     })();
-  }, []);
+  }, [request]);
 
   return { data, loading, errorMessage };
 };

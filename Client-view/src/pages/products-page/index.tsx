@@ -1,43 +1,30 @@
-import CerealsModel from 'models/cereals';
+import useQuery from 'hooks/use-query';
 import React from 'react';
 import ApiServices from 'services/api-services';
 import DrawerLayout from '../../components/layouts/drawer-layouts';
+import CerealCardLayout from './cereal-card.layout';
+import CerealCard from './cereals-card';
 import DrawerContent from './drawer-content';
+import Header from './header';
 
 // Komponentas, negali būti asinchroninis, jo grąžinimas vyksta sinchroniškai
-const ProductsPage = () => {
-  const [cereals, setCereals] = React.useState<CerealsModel[]>([]);
-  const [loading, setLoading] = React.useState<boolean>(true);
-  const [error, setError] = React.useState<null | string>(null);
+const CerealsPage = () => {
+  const {
+    data: cereals,
+  } = useQuery(ApiServices.fetchCereals, []);
 
-  React.useEffect(() => {
-    (async () => {
-      try {
-        setLoading(true);
-        const fecthCereals = await ApiServices.fetchCereals();
-        setCereals(fecthCereals);
-      } catch (err) {
-        setError((err as Error).message);
-      } finally {
-        setLoading(false);
-      }
-    })();
-  }, []);
-
-  let mainContent: React.ReactNode;
-  if (error !== null) {
-    mainContent = <div style={{ color: 'red' }}>{error}</div>;
-  } else if (loading) {
-    mainContent = '... loading';
-  } else {
-    mainContent = <pre>{JSON.stringify(cereals, null, 4)}</pre>;
-  }
+  const headerTitle = `All products (${cereals.length})`;
 
   return (
     <DrawerLayout drawerContent={<DrawerContent />}>
-      {mainContent}
+      <Header>{headerTitle}</Header>
+      {cereals.length > 0 && (
+        <CerealCardLayout>
+          {cereals.map((cereal) => <CerealCard {...cereal} />)}
+        </CerealCardLayout>
+      )}
     </DrawerLayout>
   );
 };
 
-export default ProductsPage;
+export default CerealsPage;

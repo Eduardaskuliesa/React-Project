@@ -1,0 +1,23 @@
+.layout {
+    display: grid;
+    padding: 1rem;
+    gap: 5rem;
+    margin-top: 100px;
+    margin-left: 10%;
+    margin-right: 10%;
+}
+
+@media screen and (min-width: $tabletBr) {
+    .layout {
+        grid-template-columns: repeat(2, 1.5fr); 
+       
+    }
+}
+
+@media screen and (min-width: $desktopBr) {
+    .layout {
+        grid-template-columns: repeat(3, 2fr);
+        
+    }
+}
+    
