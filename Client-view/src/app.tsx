@@ -1,8 +1,9 @@
 import React from 'react';
-import ProductsPage from 'pages/products-page';
+import { RouterProvider } from 'react-router-dom';
+import router from 'navigation/router';
 
 const App = () => (
-  <ProductsPage />
+  <RouterProvider router={router} />
 );
 
 export default App;
